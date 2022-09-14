@@ -17,7 +17,7 @@ minimize total : x1 + x2 + x3 + x4 + x5 + x6;\
 \
 \
 subject to limit_1 :  x1+x6  >= 9;\
-subject to limit_2 :  x1+x6  >= 21;\
+subject to limit_2 :  x1+x2  >= 21;\
 subject to limit_3 :  x2+x3  >= 25;\
 subject to limit_4 :  x3+x4  >= 16;\
 subject to limit_5 :  x4+x5  >= 30;\
