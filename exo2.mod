@@ -1,4 +1,4 @@
-﻿var xaa >= 0; 
+var xaa >= 0; 
 var xab >= 0;
 var xac >= 0;
 var xba >= 0;
@@ -30,3 +30,16 @@ solve;
 
 
 
+/*
+valeur optimale : 24000
+xaa = 200
+xab = 0
+xac = 75 
+xba = 0
+xbb = 250
+xbc = 150
+xca = 0
+xcb = 300
+xcc = 0
+
+*/

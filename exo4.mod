@@ -16,4 +16,9 @@ subject to limit_4 :  0.2 * x1 + 0.15 * x2 + 0.2 * x3 + 0.3 * x4 >= 1000 ;
 
 solve;
 
+/*
+
+Pas de solution 
+*/
+
 

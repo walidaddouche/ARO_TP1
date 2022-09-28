@@ -1,4 +1,4 @@
-﻿var xa >= 0;
+var xa >= 0;
 var xb >= 0;
 var xc >= 0;
 var xd >= 0;
@@ -18,5 +18,13 @@ solve;
 
 
 
+/* valeur optimale 7100 */
 
+/*
+xa = 13500
+xb = 13500
+xc = 9999.999
+xd = 26499.99
+xe = 36500
+/*
 
