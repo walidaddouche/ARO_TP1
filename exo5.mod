@@ -1,79 +1,16 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2638
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-
-\f0\fs24 \cf0 \
-set M;\
-/* Mois */\
-\
-param cpu\{i in M\};\
-/* Co\'fbt de production unitaire (euros) */\
-\
-param d\{i in M\};\
-/* Demande (nb unit\'e9s) */\
-\
-param cp\{i in M\};\
-/* Capacit\'e9 de production (nb unit\'e9s) */\
-\
-param te;\
-/* Taille de l'entrep\'f4t */\
-\
-param umm >= 0;\
-/* Nombre d'unit\'e9s minimum en stock chaque mois */\
-\
-param ui;\
-/* Nombre d'unit\'e9s initialement */\
-\
-var u\{i in M\} >= 0, <= cp[i], integer;\
-/* Nombre d'unit\'e9s produites */\
-\
-var us\{i in M\} >= umm, <= te, integer;\
-/* Nombre d'unit\'e9s en stock */\
-\
-minimize nut: sum\{i in M\} u[i] * cpu[i] + sum\{i in 1..(card(M) - 1)\} us[i] * 0.015 * cpu[i];\
-/* le nombre d'unit\'e9s totale */\
-\
-s.t. us_cntrnt\{i in M\}: us[i] = ui + sum\{j in 1..i\} (u[j] - d[j]);\
-/* d\'e9finition de us */\
-\
-solve;\
-\
-printf 'Le nombre d unit\'e9s produites totale = %i\\n', nut;\
-printf\{i in M\}:'Mois %s : %i unit\'e9s produites\\t\\t%i unit\'e9s stock\'e9es\\n', i, u[i], us[i]; \
-\
-data;\
-\
-set M := 1 2 3 4 5 6;\
-\
-param cpu := 1 240\
-             2 250\
-             3 265\
-             4 285\
-             5 280\
-             6 285;\
-\
-param d := 1 1000\
-           2 4500\
-           3 6000\
-           4 5500\
-           5 3500\
-           6 4000;\
-\
-param cp := 1 4000\
-            2 3500\
-            3 4000\
-            4 4500\
-            5 4000\
-            6 3500;\
-\
-param te := 6000;\
-\
-param umm := 1500;\
-\
-param ui := 2750;\
-\
-end;\
-/* Exo fait avec un camarde */}
+var p1; var p2; var p3; var p4;
+ 
+var p5; var p6; var s1; var s2; var s3; var s4; var s5; var s6;
+minimize obj:240*p1+250 *p2+3.6*s2+265*p3+3.75*s3+285*p4+3.975*s4+ 280 * p5 + 4.275 * s5 + 285 * p6 + 4.2 * s6;
+s.t. c1: s2>=1500;
+s.t. c2: s3>=1500;
+s.t. c3: s4>=1500;
+s.t. c4: s5>=1500;
+s.t. c5: s6>=1500;
+s.t. c6: p1>=2000;
+s.t. c7: p2>=1750;
+s.t. c8: p3>=2000;
+s.t. c9: p4>=2250;
+s.t. c10: p5>=2000; s.t. c11: p6>=1750; s.t. c12: p2+s2<=6000; s.t. c13: p3+s3<=6000; s.t. c14: p4+s4<=6000; s.t. c15: p5+s5<=6000; s.t. c16: p6+s6<=6000; s.t. c17: p1+s1<=6000; s.t. c18: s1=2750; solve;
+display p1, p2, p3, p4, p5, p6, s1, s2, s3, s4, s5, s6;
+ end;
